@@ -24,10 +24,10 @@ for i in F_attendees:
     draw.text(((x-w)/2, (y-h)/2), i, fill=color, font=font)
     img.save(f'{i}_certificate.png')
 
-    for i in M_attendees:
-        img = Image.open('certificate_M.png')
-        draw = ImageDraw.Draw(img)
-        #   Size of text
-        w, h = draw.textsize(i, font)
-        draw.text(((x - w) / 2, (y - h) / 2), i, fill=color, font=font)
-        img.save(f'{i}_certificate.png')
+for i in M_attendees:
+    img = Image.open('certificate_M.png')
+    draw = ImageDraw.Draw(img)
+    #   Size of text
+    w, h = draw.textsize(i, font)
+    draw.text(((x - w) / 2, (y - h) / 2), i, fill=color, font=font)
+    img.save(f'{i}_certificate.png')
