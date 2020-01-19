@@ -10,13 +10,24 @@ font = ImageFont.truetype('Futura Bold font.ttf', size=180)
 #   Output color
 color = 'rgb(232, 73, 67)'
 #   List of names
-attendees = ["Attendee 1", "Attendee 2"]
+#For female attendees
+F_attendees = ["Attendee 1", "Attendee 2"]
+#For male attendees
+M_attendees = ["Attendee 3", "Attendee 4"]
 
 #   Loop through names and write/save
-for i in attendees:
-    img = Image.open('certificate.png')
+for i in F_attendees:
+    img = Image.open('certificate_F.png')
     draw = ImageDraw.Draw(img)
     #   Size of text
     w, h = draw.textsize(i, font)
     draw.text(((x-w)/2, (y-h)/2), i, fill=color, font=font)
     img.save(f'{i}_certificate.png')
+
+    for i in M_attendees:
+        img = Image.open('certificate_M.png')
+        draw = ImageDraw.Draw(img)
+        #   Size of text
+        w, h = draw.textsize(i, font)
+        draw.text(((x - w) / 2, (y - h) / 2), i, fill=color, font=font)
+        img.save(f'{i}_certificate.png')
