@@ -6,17 +6,12 @@ import os
 current_dir = os.getcwd()
 logo_file = 'logo.png'
 
-
 for f in os.listdir(current_dir):
-    if f.endswith(".jpg"):
+    if f.endswith(".JPG"):
         img = Image.open(f)
         logo = Image.open(logo_file)
-        new_height = img.height // 5
-        new_width = new_height * logo.width // logo.height
-        new_logo = logo.resize((new_width, new_height), Image.ANTIALIAS)
-        position = (0, (img.height - new_logo.height))
-        img.paste(new_logo, position, new_logo)
+        position = (0, (img.height - logo.height))
+        img.paste(logo, position, logo)
         img.save(f'{f[:-4]}_done.jpg')
     else:
         continue
-        
